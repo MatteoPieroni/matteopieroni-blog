@@ -42,6 +42,9 @@ module.exports = {
         "semi": [
             "error",
             "always"
-        ]
+        ],
+        "array-bracket-spacing": ["error", "never"],
+        "object-curly-spacing": ["error", "always"],
+        "react/prop-types": ["off"]
     }
 };
