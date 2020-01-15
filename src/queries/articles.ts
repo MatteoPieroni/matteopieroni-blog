@@ -20,3 +20,13 @@ export const ARTICLES_QUERY: DocumentNode = gql`
     }
   }
 `;
+
+export const GET_ARTICLE_QUERY: (slug: string) => DocumentNode = (slug) => gql`
+  query ArticlesSlug {
+    articles(where: { slug: "${slug}" }) {
+      id
+      title
+      body
+    }
+  }
+`;
