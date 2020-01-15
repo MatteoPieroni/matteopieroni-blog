@@ -1,20 +1,12 @@
 import React from 'react';
-import { useQuery } from '@apollo/react-hooks';
-import { WORKPLACES_QUERY, WorkplaceData } from '../../queries/workplaces';
+import { Workplace } from '../../queries/workplaces';
 import { WorkProjectList } from '../work-project-list';
 
-export const Timeline: React.FC = () => {
-	const { data, loading, error } = useQuery<WorkplaceData>(WORKPLACES_QUERY);
-	const { workplaces } = data || {};
+interface Props {
+	workplaces: Workplace[];
+}
 
-	if (loading) {
-		return <div>Loading</div>;
-	}
-
-	if (error) {
-		return <p>Error</p>;
-	}
-
+export const Timeline: React.FC<Props> = ({ workplaces }) => {
 	return (
 		<>
 			{workplaces && (

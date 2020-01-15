@@ -3,13 +3,12 @@ import { NextPage } from 'next';
 import Head from 'next/head';
 import { useQuery } from '@apollo/react-hooks';
 
-import { ARTICLES_QUERY, TArticleData } from '../queries/articles';
 import { Timeline } from '../components/timeline';
-import { ArticlesHome } from '../components/articles-home/articles-home';
+import { WORKPLACES_QUERY, WorkplaceData } from '../queries/workplaces';
 
-export const Home: NextPage = () => {
-	const { data, loading, error } = useQuery<TArticleData>(ARTICLES_QUERY);
-	const { articles } = data || {};
+export const WorkExperience: NextPage = () => {
+	const { data, loading, error } = useQuery<WorkplaceData>(WORKPLACES_QUERY);
+	const { workplaces } = data || {};
 
 	if (loading) {
 		return <p>Loading...</p>;
@@ -25,9 +24,9 @@ export const Home: NextPage = () => {
 				<title>Home</title>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			{articles && <ArticlesHome articles={articles} />}
+			{workplaces && <Timeline workplaces={workplaces} />}
 		</div>
 	);
 };
 
-export default Home;
+export default WorkExperience;
