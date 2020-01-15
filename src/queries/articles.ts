@@ -5,6 +5,9 @@ export interface TArticle {
   id: string;
   title: string;
   body: string;
+  slug: string;
+  readingtime: string;
+  publisheddate: Date;
 }
 
 export interface TArticleData {
@@ -16,7 +19,9 @@ export const ARTICLES_QUERY: DocumentNode = gql`
     articles {
       id
       title
-      body
+      slug
+      readingtime
+      publisheddate
     }
   }
 `;
@@ -26,7 +31,10 @@ export const GET_ARTICLE_QUERY: (slug: string) => DocumentNode = (slug) => gql`
     articles(where: { slug: "${slug}" }) {
       id
       title
+      slug
       body
+      readingtime
+      publisheddate
     }
   }
 `;

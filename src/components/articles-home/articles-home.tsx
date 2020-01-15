@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 import { TArticle } from '../../queries/articles';
 
@@ -9,9 +10,13 @@ interface Props {
 export const ArticlesHome: React.FC<Props> = ({ articles }) => {
 	return (
 		<ul>
-			{articles.map(({ id, title }) => (
+			{articles.map(({ id, title, slug }) => (
 				<li key={id}>
-					<h3>{title}</h3>
+					<Link href={`/blog/${slug}`} >
+						<a>
+							<h3>{title}</h3>
+						</a>
+					</Link>
 				</li>
 			))}
 		</ul>
