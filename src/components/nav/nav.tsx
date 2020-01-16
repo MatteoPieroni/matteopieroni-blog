@@ -1,15 +1,21 @@
 import React from 'react';
 import Link from 'next/link';
 
-const links = [
+type LinkType = {
+  href: string;
+  label: string;
+  key?: string;
+}
+
+const links: LinkType[] = [
 	{ href: 'https://zeit.co/now', label: 'ZEIT' },
 	{ href: 'https://github.com/zeit/next.js', label: 'GitHub' },
-].map(link => {
+].map((link: LinkType) => {
 	link.key = `nav-link-${link.href}-${link.label}`;
 	return link;
 });
 
-const Nav = () => (
+export const Nav = () => (
 	<nav>
 		<ul>
 			<li>
@@ -52,5 +58,3 @@ const Nav = () => (
     `}</style>
 	</nav>
 );
-
-export default Nav;

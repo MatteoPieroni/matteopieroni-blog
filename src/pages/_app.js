@@ -3,7 +3,7 @@ import App from 'next/app';
 import { ApolloProvider } from '@apollo/react-hooks';
 
 import withData from '../apollo-config';
-import { LoadingBar } from '../components/loading-bar';
+import { Template } from '../components/template';
 
 class MyApp extends App {
 	render() {
@@ -11,8 +11,9 @@ class MyApp extends App {
 
 		return (
 			<ApolloProvider client={apollo}>
-				<Component {...pageProps} />
-				<LoadingBar />
+				<Template>
+					<Component {...pageProps} />
+				</Template>
 			</ApolloProvider>
 		);
 	}
