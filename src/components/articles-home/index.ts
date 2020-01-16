@@ -1,0 +1,1 @@
+export { ArticlesHome } from './articles-home';
